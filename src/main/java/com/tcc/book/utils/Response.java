@@ -12,6 +12,6 @@ import lombok.Setter;
 public class Response<T> {
     private T data;
     private String message;
-    private boolean isErrorExist;
+    private Boolean errorExist;
     private String errorCode;
 }

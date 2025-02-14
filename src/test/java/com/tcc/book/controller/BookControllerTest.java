@@ -29,6 +29,12 @@ public class BookControllerTest {
 
     @BeforeEach
     void setup() {
+        bookRequest = new BookRequestDTO();
+        bookRequest.setTitle("Test Book");
+        bookRequest.setAuthor("Test Author");
+        bookRequest.setIsbn("123456789");
+        bookRequest.setPublicationYear(2024);
+        bookRequest.setDescription("This is a test book description.");
 
         bookResponse = new BookResponseDTO();
         bookResponse.setTitle(bookRequest.getTitle());
@@ -47,7 +53,8 @@ public class BookControllerTest {
 
         when(bookService.createBook(any(BookRequestDTO.class))).thenReturn(response);
 
-        assertNotNull(response.getData(), "Response data should not be null");
+        Response<BookResponseDTO> createdResponse = bookService.createBook(bookRequest);
 
+        assertNotNull(createdResponse.getData(), "Response data should not be null");
     }
 }
