@@ -13,12 +13,12 @@ import java.util.Map;
 public class AIService {
 
     private final WebClient webClient;
+    private final String apiKey;
 
-    @Value("${openai_api_key}")
-    private String apiKey;
-
-    public AIService(WebClient.Builder webClientBuilder) {
+    public AIService(WebClient.Builder webClientBuilder,
+                     @Value("${openai.api.key}") String decryptedApiKey) {
         this.webClient = webClientBuilder.baseUrl("https://api.openai.com/v1").build();
+        this.apiKey = decryptedApiKey;
     }
 
     public Response<String> generateBookInsight(String bookDescription) {
@@ -49,4 +49,3 @@ public class AIService {
         return resp;
     }
 }
-
