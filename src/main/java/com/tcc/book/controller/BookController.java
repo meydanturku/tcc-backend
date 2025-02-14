@@ -2,7 +2,6 @@ package com.tcc.book.controller;
 
 import com.tcc.book.dto.request.BookRequestDTO;
 import com.tcc.book.dto.response.BookResponseDTO;
-import com.tcc.book.entity.Book;
 import com.tcc.book.service.AIService;
 import com.tcc.book.service.BookService;
 import com.tcc.book.utils.Response;
@@ -26,26 +25,26 @@ public class BookController {
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/get-book/{id}")
     public ResponseEntity<Response<BookResponseDTO>> getBookById(@PathVariable Long id) {
         Response<BookResponseDTO> response = bookService.getBookById(id);
         return ResponseEntity.ok(response);
     }
 
-    @PostMapping
+    @PostMapping("/create-book")
     public ResponseEntity<Response<BookResponseDTO>> createBook(@RequestBody BookRequestDTO bookRequestDTO) {
         Response<BookResponseDTO> response = bookService.createBook(bookRequestDTO);
         return ResponseEntity.ok(response);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/update-book/{id}")
     public ResponseEntity<Response<BookResponseDTO>> updateBook(@PathVariable Long id,
                                                                 @RequestBody BookRequestDTO bookRequestDTO) {
         Response<BookResponseDTO> response = bookService.updateBook(id, bookRequestDTO);
         return ResponseEntity.ok(response);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete-book/{id}")
     public ResponseEntity<Response<Void>> deleteBook(@PathVariable Long id) {
         Response<Void> response = bookService.deleteBook(id);
         return ResponseEntity.ok(response);

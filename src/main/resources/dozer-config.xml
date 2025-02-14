@@ -4,16 +4,6 @@
           xsi:schemaLocation="http://dozer.sourceforge.net
           http://dozer.sourceforge.net/schema/beanmapping.xsd">
 
-    <mapping>
-        <class-a>com.tcc.book.entity.Book</class-a>
-        <class-b>com.tcc.book.dto.request.BookRequestDTO</class-b>
-    </mapping>
-
-    <mapping>
-        <class-a>com.tcc.book.entity.Book</class-a>
-        <class-b>com.tcc.book.dto.request.BookResponseDTO</class-b>
-    </mapping>
-
 </mappings>
 
 
