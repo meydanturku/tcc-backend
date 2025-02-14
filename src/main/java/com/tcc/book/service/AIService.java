@@ -14,7 +14,7 @@ public class AIService {
 
     private final WebClient webClient;
 
-    @Value("${openai.api.key}")
+    @Value("${openai_api_key}")
     private String apiKey;
 
     public AIService(WebClient.Builder webClientBuilder) {
